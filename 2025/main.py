@@ -1,8 +1,11 @@
 from aocd import get_data
 
+from puzzles.day_1 import Day1
+
 
 def main():
-    print(get_data(day=23, year=2024))
+    solver = Day1()
+    solver.solve()
 
 
 if __name__ == "__main__":
