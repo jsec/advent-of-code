@@ -1,10 +1,8 @@
-from aocd import get_data
-
-from puzzles.day_1 import Day1
+from puzzles.day_2 import Day2
 
 
 def main():
-    solver = Day1()
+    solver = Day2()
     solver.solve()
 
 

@@ -16,3 +16,6 @@ class Input:
 
     def parse_as_number_grid(self) -> list[list[int]]:
         return [[int(char) for char in line] for line in self.parse_as_lines()]
+
+    def split_by_delimiter(self, delimiter: str) -> list[str]:
+        return self.input.split(delimiter)
