@@ -8,7 +8,6 @@ class Day2(Solver):
     ranges: list[tuple[int, int]]
 
     def __init__(self) -> None:
-        super().__init__()
         self.ranges = []
 
         input = Input(2).split_by_delimiter(",")

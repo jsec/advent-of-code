@@ -7,7 +7,6 @@ class Day1(Solver):
     rotations: list[str]
 
     def __init__(self) -> None:
-        super().__init__()
         self.rotations = Input(1).parse_as_lines()
 
     def puzzle(self):
