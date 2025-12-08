@@ -35,3 +35,17 @@ class Grid:
 
     def set(self, x: int, y: int, value: str):
         self.data[x][y] = value
+
+    def find(self, value: str):
+        for row_idx, row in enumerate(self.data):
+            for col_idx, candidate in enumerate(row):
+                if candidate == value:
+                    return (row_idx, col_idx)
+
+        raise Exception("Value could not be found")
+
+    def print(self):
+        for row in self.data:
+            for column in row:
+                print(f"{column}", end="")
+            print()

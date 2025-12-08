@@ -1,8 +1,8 @@
-from puzzles.day_6 import Day6
+from puzzles.day_7 import Day7
 
 
 def main():
-    solver = Day6()
+    solver = Day7()
     solver.solve()
 
 
