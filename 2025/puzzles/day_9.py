@@ -1,7 +1,8 @@
-from itertools import combinations
+from itertools import combinations, compress, starmap
 from typing import override
 from util.solver import Solver
 from util.input import Input
+from shapely import Polygon, box
 
 
 class Day9(Solver):
@@ -26,4 +27,13 @@ class Day9(Solver):
 
     @override
     def solve_part_2(self) -> int:
-        return 0
+        boxes = [
+            (min(a, c), min(b, d), max(a, c), max(b, d))
+            for (a, b), (c, d) in combinations(self.tiles, 2)
+        ]
+
+        areas = [(c - a + 1) * (d - b + 1) for (a, b, c, d) in boxes]
+
+        p = Polygon(self.tiles)
+        valid_areas = compress(areas, map(p.contains, starmap(box, boxes)))
+        return max(valid_areas)
