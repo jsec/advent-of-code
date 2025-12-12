@@ -22,3 +22,4 @@ reportUnknownParameterType = false
 reportUnknownArgumentType = false
 reportMissingParameterType = false
 reportUnknownVariableType = false
+reportUnknownMemberType = false
