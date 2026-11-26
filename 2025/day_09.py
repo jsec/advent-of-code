@@ -1,8 +1,9 @@
 from itertools import combinations, compress, starmap
 from typing import override
-from util.solver import Solver
-from util.input import Input
+
 from shapely import Polygon, box
+from util.input import Input
+from util.solver import Solver
 
 
 class Day9(Solver):

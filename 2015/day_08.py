@@ -1,6 +1,5 @@
-import os
 import fileinput
-import re
+import os
 
 
 def p1():

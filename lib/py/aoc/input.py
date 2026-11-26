@@ -1,12 +1,12 @@
 import os
+from pathlib import Path
 
 
 class Input:
     input: str
 
     def __init__(self) -> None:
-        with open(os.environ["AOC_INPUT"]) as file:
-            self.input = file.read()
+        self.input = Path(os.environ["AOC_INPUT"]).read_text()
 
     def parse_as_lines(self) -> list[str]:
         return self.input.splitlines()

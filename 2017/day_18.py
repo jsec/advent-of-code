@@ -10,7 +10,7 @@ def run(instructions):
         inst = instructions[idx]
         cmd = inst[0]
         reg = inst[1]
-        value = ''
+        value = ""
 
         if len(inst) == 3:
             value = inst[2]
@@ -19,21 +19,21 @@ def run(instructions):
             regs[reg] = 0
 
         match cmd:
-            case 'snd':
+            case "snd":
                 sound = regs[reg]
-            case 'set':
+            case "set":
                 regs[reg] = regs[value] if value.isalpha() else int(value)
-            case 'add':
+            case "add":
                 regs[reg] += regs[value] if value.isalpha() else int(value)
-            case 'mul':
+            case "mul":
                 regs[reg] *= regs[value] if value.isalpha() else int(value)
-            case 'mod':
+            case "mod":
                 divisor = regs[value] if value.isalpha() else int(value)
                 regs[reg] = regs[reg] % divisor
-            case 'rcv':
+            case "rcv":
                 if regs[reg] != 0:
                     return sound
-            case 'jgz':
+            case "jgz":
                 if regs[reg] > 0:
                     idx += int(value)
                     continue
@@ -42,6 +42,7 @@ def run(instructions):
 
     return sound
 
-instructions = [line.split(' ') for line in get_input_lines()]
 
-print('P1:', run(instructions))
+instructions = [line.split(" ") for line in get_input_lines()]
+
+print("P1:", run(instructions))

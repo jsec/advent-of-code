@@ -7,7 +7,9 @@ def is_valid(phrase: list[str], p2=False) -> bool:
     if not p2:
         return len(phrase) == len(list(dict.fromkeys(phrase)))
 
-    return not any(sorted(pair[0]) == sorted(pair[1]) for pair in itertools.combinations(phrase, 2))
+    return not any(
+        sorted(pair[0]) == sorted(pair[1]) for pair in itertools.combinations(phrase, 2)
+    )
 
 
 def count(lst, fn) -> int:

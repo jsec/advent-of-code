@@ -47,7 +47,12 @@ def walk(grid, paths, point, end, current_path, visited, p1) -> int:
     if not neighbors:
         return 0
 
-    return max([walk(grid, paths, n, end, current_path.copy(), visited.copy(), p1) for n in neighbors])
+    return max(
+        [
+            walk(grid, paths, n, end, current_path.copy(), visited.copy(), p1)
+            for n in neighbors
+        ]
+    )
 
 
 def run(grid, p1: bool = True) -> int:

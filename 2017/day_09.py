@@ -15,6 +15,7 @@ def get_score(group) -> int:
 
     return score
 
+
 def clear_garbage(string) -> str:
     start = 0
     garbage = []
@@ -24,14 +25,14 @@ def clear_garbage(string) -> str:
     while idx < len(string):
         char = string[idx]
 
-        if char == '!':
+        if char == "!":
             idx += 2
             continue
 
-        if char == '<' and start == 0:
+        if char == "<" and start == 0:
             start = idx
 
-        if char == '>':
+        if char == ">":
             garbage.append((start, idx))
             start = 0
 
@@ -40,9 +41,10 @@ def clear_garbage(string) -> str:
     garbage.reverse()
 
     for s, e in garbage:
-        string = string[0:s] + string[e + 1:]
+        string = string[0:s] + string[e + 1 :]
 
     return string
+
 
 def get_garbage_count(string) -> int:
     result = 0
@@ -53,12 +55,12 @@ def get_garbage_count(string) -> int:
     while idx < len(string):
         char = string[idx]
 
-        if char == '<' and not should_count:
+        if char == "<" and not should_count:
             should_count = True
-        elif char == '!':
+        elif char == "!":
             idx += 2
             continue
-        elif char == '>':
+        elif char == ">":
             should_count = False
             result += acc
             acc = 0
@@ -70,10 +72,11 @@ def get_garbage_count(string) -> int:
 
     return result
 
+
 data = get_input()
 
 p1 = get_score(clear_garbage(data))
 p2 = get_garbage_count(data)
 
-print('P1:', p1)
-print('P2:', p2)
+print("P1:", p1)
+print("P2:", p2)

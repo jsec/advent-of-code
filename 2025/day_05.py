@@ -1,7 +1,8 @@
 from typing import NamedTuple, override
+
+from intervaltree import IntervalTree  # pyright: ignore[reportMissingTypeStubs]
 from util.input import Input
 from util.solver import Solver
-from intervaltree import IntervalTree  # pyright: ignore[reportMissingTypeStubs]
 
 
 class Range(NamedTuple):

@@ -14,7 +14,7 @@ def no_reds(struct):
     if isinstance(struct, list):
         child_sums = [no_reds(child) for child in struct]
         return sum(child_sums)
-    elif isinstance(struct, dict):
+    if isinstance(struct, dict):
         for key in struct.keys():
             if struct[key] == "red":
                 return 0

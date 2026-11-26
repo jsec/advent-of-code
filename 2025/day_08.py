@@ -2,8 +2,9 @@ from collections import defaultdict
 from itertools import combinations
 from math import sqrt
 from typing import override
-from util.solver import Solver
+
 from util.input import Input
+from util.solver import Solver
 
 
 def distance_3d(first, second):
@@ -45,14 +46,13 @@ class Day8(Solver):
             elif first in point_map and second in point_map:
                 if point_map[first] == point_map[second]:
                     continue
-                else:
-                    old_id = point_map[second]
+                old_id = point_map[second]
 
-                    for point in network_map[point_map[second]]:
-                        point_map[point] = point_map[first]
+                for point in network_map[point_map[second]]:
+                    point_map[point] = point_map[first]
 
-                    network_map[point_map[first]] |= network_map[old_id]
-                    del network_map[old_id]
+                network_map[point_map[first]] |= network_map[old_id]
+                del network_map[old_id]
             elif first in point_map:
                 point_map[second] = point_map[first]
                 network_map[point_map[first]].add(second)

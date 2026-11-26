@@ -1,7 +1,8 @@
 from typing import override
+
+from util.input import Input
 from util.list import transpose
 from util.solver import Solver
-from util.input import Input
 
 
 class Day6(Solver):

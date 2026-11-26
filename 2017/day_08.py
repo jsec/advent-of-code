@@ -9,7 +9,7 @@ def run(instructions):
 
     for i in instructions:
         dest, effect, value, _, cmp, op, cmp_value = i
-        if eval("regs[cmp] " + op + cmp_value):  # noqa: S307, PGH001
+        if eval("regs[cmp] " + op + cmp_value):
             if effect == "inc":
                 regs[dest] += int(value)
                 max_seen = max(max_seen, regs[dest])

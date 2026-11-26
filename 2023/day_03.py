@@ -5,7 +5,16 @@ from util.input import get_input_array
 
 
 class Schematic2:
-    directions: ClassVar[list[tuple]] = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+    directions: ClassVar[list[tuple]] = [
+        (-1, -1),
+        (-1, 0),
+        (-1, 1),
+        (0, -1),
+        (0, 1),
+        (1, -1),
+        (1, 0),
+        (1, 1),
+    ]
 
     def __init__(self, data: list[str]):
         self.data = [line.replace(".", "x") for line in data]
@@ -25,7 +34,6 @@ class Schematic2:
     def find_numbers(self):
         number_map = {}
         for idx, line in enumerate(self.data):
-
             for match in re.finditer(r"\d+", line):
                 start = int(match.start(0))
                 group = match.group(0)
@@ -45,10 +53,14 @@ class Schematic2:
             x, y = symbol
             nodes = [(x + xn, y + yn) for xn, yn in self.directions]
             for node in nodes:
-                found_numbers = list(filter(lambda x: node in self.number_map[x], self.number_map))
+                found_numbers = list(
+                    filter(lambda x: node in self.number_map[x], self.number_map)
+                )
                 adjacent_numbers.append(found_numbers)
 
-            adjacent_numbers = list(dict.fromkeys([i for n in adjacent_numbers for i in n]))
+            adjacent_numbers = list(
+                dict.fromkeys([i for n in adjacent_numbers for i in n])
+            )
             if len(adjacent_numbers) == 2:
                 self.ratios.append(adjacent_numbers[0] * adjacent_numbers[1])
 
@@ -56,7 +68,16 @@ class Schematic2:
 
 
 class Schematic:
-    directions: ClassVar[list[tuple]] = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+    directions: ClassVar[list[tuple]] = [
+        (-1, -1),
+        (-1, 0),
+        (-1, 1),
+        (0, -1),
+        (0, 1),
+        (1, -1),
+        (1, 0),
+        (1, 1),
+    ]
 
     def __init__(self, data: list[str]):
         self.data = [line.replace(".", "x") for line in data]
@@ -67,7 +88,10 @@ class Schematic:
 
     def find_numbers(self):
         return [
-            {int(match.start(0)): int(match.group(0)) for match in re.finditer(r"\d+", line.replace(".", " "))}
+            {
+                int(match.start(0)): int(match.group(0))
+                for match in re.finditer(r"\d+", line.replace(".", " "))
+            }
             for line in self.data
         ]
 
@@ -86,7 +110,11 @@ class Schematic:
             y += 1
 
         # Flatten list
-        nodes = list(filter(lambda x: self.check_index(x[0], x[1]), [i for s in nodes for i in s]))
+        nodes = list(
+            filter(
+                lambda x: self.check_index(x[0], x[1]), [i for s in nodes for i in s]
+            )
+        )
         return len(nodes) > 0
 
     def check_index(self, x: int, y: int) -> bool:

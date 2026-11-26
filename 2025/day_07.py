@@ -1,7 +1,8 @@
 from collections import defaultdict
 from typing import override
-from util.solver import Solver
+
 from util.input import Input
+from util.solver import Solver
 
 Beams = dict[int, int]
 

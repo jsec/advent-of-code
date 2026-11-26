@@ -20,7 +20,11 @@ def part2(data: str) -> int:
             label = step[:-1]
             boxes[hash_key(label)].pop(label, None)
 
-    return sum((idx + 1) * (slot + 1) * length for idx in boxes for slot, length in enumerate(boxes[idx].values()))
+    return sum(
+        (idx + 1) * (slot + 1) * length
+        for idx in boxes
+        for slot, length in enumerate(boxes[idx].values())
+    )
 
 
 data = get_input_array()[0]

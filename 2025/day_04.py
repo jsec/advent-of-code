@@ -1,7 +1,8 @@
 from typing import override
+
 from util.grid import Grid
-from util.solver import Solver
 from util.input import Input
+from util.solver import Solver
 
 
 class Day4(Solver):

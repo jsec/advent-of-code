@@ -22,7 +22,11 @@ def get_total(arr: Pattern, diff: int) -> int:
 
 
 def verify(top: Pattern, bottom: Pattern, diff: int) -> bool:
-    diff_sum = sum(char_t != char_b for line_t, line_b in zip(top, bottom) for char_t, char_b in zip(line_t, line_b))
+    diff_sum = sum(
+        char_t != char_b
+        for line_t, line_b in zip(top, bottom)
+        for char_t, char_b in zip(line_t, line_b)
+    )
     return diff == diff_sum
 
 

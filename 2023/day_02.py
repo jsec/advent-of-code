@@ -24,10 +24,16 @@ class Game:
                 self.color_dict[color] = count
 
     def is_possible(self, red: int, green: int, blue: int) -> bool:
-        return self.color_dict["red"] <= red and self.color_dict["green"] <= green and self.color_dict["blue"] <= blue
+        return (
+            self.color_dict["red"] <= red
+            and self.color_dict["green"] <= green
+            and self.color_dict["blue"] <= blue
+        )
 
     def get_power(self) -> int:
-        return self.color_dict["red"] * self.color_dict["green"] * self.color_dict["blue"]
+        return (
+            self.color_dict["red"] * self.color_dict["green"] * self.color_dict["blue"]
+        )
 
 
 def part1(data: list[str]) -> int:

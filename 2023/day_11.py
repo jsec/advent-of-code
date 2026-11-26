@@ -49,7 +49,9 @@ def solve(universe: Universe, expansion_rate: int):
         updated = (x + (r * expansion_rate), y + (c * expansion_rate))
         expanded_galaxies.append(updated)
 
-    return sum([get_distance(x, y) for x, y in itertools.combinations(expanded_galaxies, 2)])
+    return sum(
+        [get_distance(x, y) for x, y in itertools.combinations(expanded_galaxies, 2)]
+    )
 
 
 data = [list(line) for line in get_input_array()]

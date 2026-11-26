@@ -1,7 +1,8 @@
-from typing import override
-from util.solver import Solver
-from util.input import Input
 from functools import cache
+from typing import override
+
+from util.input import Input
+from util.solver import Solver
 
 
 class Day11(Solver):

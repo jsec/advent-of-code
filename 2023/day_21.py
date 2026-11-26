@@ -42,7 +42,7 @@ def p2(m: list[str], steps: int) -> int:
     x, y = find_item_in_matrix(m, "S")
 
     iters, rem = divmod(steps, map_size)
-    a, b, c = (walk(m, x, y, map_size * i + rem) for i in range(0, 3))
+    a, b, c = (walk(m, x, y, map_size * i + rem) for i in range(3))
 
     a1 = (a - 2 * b + c) // 2
     b1 = b - a - a1

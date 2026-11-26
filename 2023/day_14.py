@@ -1,5 +1,4 @@
 import numpy as np
-
 from util.input import get_raw_input
 
 

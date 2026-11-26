@@ -1,5 +1,5 @@
 import itertools
-from typing import Callable
+from collections.abc import Callable
 
 
 def sliding_window(lst: list, size: int):

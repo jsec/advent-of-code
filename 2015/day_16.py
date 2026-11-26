@@ -37,10 +37,9 @@ def p1(item: str, quantity: int):
 def p2(item: str, quantity: int):
     if item in ["cats", "trees"]:
         return lambda sue: item not in sue or sue[item] > quantity
-    elif item in ["pomeranians", "goldfish"]:
+    if item in ["pomeranians", "goldfish"]:
         return lambda sue: item not in sue or sue[item] < quantity
-    else:
-        return lambda sue: item not in sue or sue[item] == quantity
+    return lambda sue: item not in sue or sue[item] == quantity
 
 
 def run(sues: list[dict], part2=False):

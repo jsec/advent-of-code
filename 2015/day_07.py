@@ -29,16 +29,15 @@ def get_value(name) -> int:
 
     if "AND" in op:
         return parse_value(args[0]) & parse_value(args[2])
-    elif "OR" in op:
+    if "OR" in op:
         return parse_value(args[0]) | parse_value(args[2])
-    elif "NOT" in op:
+    if "NOT" in op:
         return ~parse_value(args[1]) & 0xFFFF
-    elif "LSHIFT" in op:
+    if "LSHIFT" in op:
         return parse_value(args[0]) << int(args[2]) & 0xFFFF
-    elif "RSHIFT" in op:
+    if "RSHIFT" in op:
         return parse_value(args[0]) >> int(args[2]) & 0xFFFF
-    else:
-        return parse_value(args[0])
+    return parse_value(args[0])
 
 
 circuit = get_circuit()

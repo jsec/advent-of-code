@@ -1,5 +1,5 @@
 import itertools
-from typing import Counter
+from collections import Counter
 
 from util.input import get_input_array
 
@@ -34,25 +34,26 @@ class Hand:
         return joker_hands[-1].strength
 
     def generate_joker_hands(self, card_str: str):
-        for p in map(iter, itertools.product("".join(card_list), repeat=card_str.count("J"))):
+        for p in map(
+            iter, itertools.product("".join(card_list), repeat=card_str.count("J"))
+        ):
             yield Hand("".join(c if c != "J" else next(p) for c in card_str))
 
     def calculate_strength(self, cards: list[str]) -> int:
         counts = sorted(Counter(cards).values())
         if counts == FiveOfAKind:
             return 70
-        elif counts == FourOfAKind:
+        if counts == FourOfAKind:
             return 60
-        elif counts == FullHouse:
+        if counts == FullHouse:
             return 50
-        elif counts == ThreeOfAKind:
+        if counts == ThreeOfAKind:
             return 40
-        elif counts == TwoPair:
+        if counts == TwoPair:
             return 30
-        elif counts == OnePair:
+        if counts == OnePair:
             return 20
-        else:
-            return 10
+        return 10
 
 
 def part1(data: list[str]) -> int:

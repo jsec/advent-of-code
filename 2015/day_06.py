@@ -1,5 +1,4 @@
 import numpy as np
-
 from util.input import get_input_lines
 
 

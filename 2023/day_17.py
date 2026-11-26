@@ -3,7 +3,6 @@ from collections import defaultdict
 from heapq import heappop, heappush
 
 import networkx as nx
-
 from util.input import get_input_array
 
 DIRS = {0: (0, -1), 1: (1, 0), 2: (0, 1), 3: (-1, 0)}

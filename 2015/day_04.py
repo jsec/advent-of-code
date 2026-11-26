@@ -4,7 +4,7 @@ from util.input import get_input
 
 
 def create_hash(salt: str, num: int) -> str:
-    key = "{0}{1}".format(salt, str(num))
+    key = f"{salt}{num!s}"
     return hashlib.md5(key.encode()).hexdigest()
 
 

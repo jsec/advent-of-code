@@ -3,6 +3,7 @@ python = "3.14"
 node = "26"
 uv = "latest"
 pnpm = "11"
+ruff = "0.17.6"
 
 [env]
 _.file = ".env"
@@ -10,3 +11,4 @@ _.file = ".env"
 [tasks]
 day = "uv run python scripts/aoc.py day"
 new = "uv run python scripts/aoc.py new"
+lint = ["ruff check", "ruff format --check"]

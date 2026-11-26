@@ -11,22 +11,22 @@ def run(data):
 
     for d in data:
         match d:
-            case 'n':
+            case "n":
                 y += 1
                 z -= 1
-            case 's':
+            case "s":
                 y -= 1
                 z += 1
-            case 'ne':
+            case "ne":
                 x += 1
                 z -= 1
-            case 'sw':
+            case "sw":
                 x -= 1
                 z += 1
-            case 'nw':
+            case "nw":
                 x -= 1
                 y += 1
-            case 'se':
+            case "se":
                 x += 1
                 y -= 1
 
@@ -34,7 +34,8 @@ def run(data):
 
     return distances
 
-distances = run(get_split_input(','))
 
-print('P1:', distances[-1])
-print('P2:', max(distances))
+distances = run(get_split_input(","))
+
+print("P1:", distances[-1])
+print("P2:", max(distances))

@@ -42,13 +42,12 @@ root_program = get_root_program(programs)
 def get_weight_tree(program: Program):
     if not program.children:
         return program.weight
-    else:
-        weight = program.weight
-        for child in program.children:
-            child_weight = get_weight_tree(programs[child])
-            weight += child_weight
+    weight = program.weight
+    for child in program.children:
+        child_weight = get_weight_tree(programs[child])
+        weight += child_weight
 
-        return weight
+    return weight
 
 
 print("P1:", root_program)

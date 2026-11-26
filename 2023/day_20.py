@@ -47,12 +47,12 @@ def detect_cycle(modules, fmods, cmods):
 
     for rx_s, rx_d in modules.items():
         if rx_d == ["rx"]:
-            assert rx_s in cmods  # noqa: S101
+            assert rx_s in cmods
             break
 
     for source, dest in modules.items():
         if rx_s in dest:
-            assert source in cmods  # noqa: S101
+            assert source in cmods
             p.add(source)
 
     for i in itertools.count(1):

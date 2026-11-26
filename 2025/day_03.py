@@ -1,4 +1,5 @@
 from typing import override
+
 from util.input import Input
 from util.solver import Solver
 

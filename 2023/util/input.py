@@ -1,5 +1,6 @@
 import os
 
+
 def get_input_array() -> list[str]:
     with open(os.environ["AOC_INPUT"]) as file:
         return [line.strip() for line in file]

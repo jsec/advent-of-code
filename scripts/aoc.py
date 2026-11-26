@@ -50,7 +50,9 @@ def find_solution(year: int, day: int) -> Path:
         raise AocError(f"no solution file for {year}/{day_name(day)}")
     if len(solutions) > 1:
         names = ", ".join(path.name for path in solutions)
-        raise AocError(f"{year}/{day_name(day)} has more than one solution file: {names}")
+        raise AocError(
+            f"{year}/{day_name(day)} has more than one solution file: {names}"
+        )
     return solutions[0]
 
 
@@ -65,7 +67,9 @@ def ensure_input(year: int, day: int) -> Path:
         try:
             data = get_data(day=day, year=year)
         except AocdError as error:
-            raise AocError(f"could not download {year}/{day_name(day)} input: {error}") from error
+            raise AocError(
+                f"could not download {year}/{day_name(day)} input: {error}"
+            ) from error
         input_path.parent.mkdir(parents=True, exist_ok=True)
         input_path.write_text(data)
     return input_path
@@ -83,7 +87,8 @@ def run_day(year: int, day: int) -> int:
         raise AocError(f"no runner for {solution.suffix} files")
 
     input_path = ensure_input(year, day)
-    completed = subprocess.run(
+    # The command is a RUNNERS entry plus a solution file found in this repo.
+    completed = subprocess.run(  # noqa: S603
         [*runner, str(solution)],
         cwd=REPO_ROOT,
         env={**os.environ, "AOC_INPUT": str(input_path)},
@@ -118,7 +123,9 @@ def build_parser() -> ArgumentParser:
     parser = ArgumentParser(description="Run or create Advent of Code solutions.")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("day", parents=[puzzle_args], help="run a day's solution")
-    new_command = commands.add_parser("new", parents=[puzzle_args], help="create a day from a template")
+    new_command = commands.add_parser(
+        "new", parents=[puzzle_args], help="create a day from a template"
+    )
     new_command.add_argument("--lang", choices=["py", "ts"], default="py")
     return parser
 

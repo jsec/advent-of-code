@@ -1,7 +1,6 @@
 import math
 
 import networkx as nx
-
 from util.input import get_input_array
 
 
