@@ -3,18 +3,18 @@ name = "advent-of-code"
 version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
-  "numpy",
-  "networkx",
-  "sympy",
-  "z3-solver",
-  "mpmath",
-  "intervaltree",
-  "shapely",
-  "advent-of-code-data",
+    "numpy",
+    "networkx",
+    "sympy",
+    "z3-solver",
+    "mpmath",
+    "intervaltree",
+    "shapely",
+    "advent-of-code-data",
 ]
 
 [dependency-groups]
-dev = ["basedpyright", "ruff"]
+dev = ["pyrefly", "ruff", "types-networkx", "types-shapely"]
 
 [build-system]
 requires = ["uv_build"]
@@ -24,9 +24,39 @@ build-backend = "uv_build"
 module-name = "aoc"
 module-root = "lib/py"
 
+[tool.pyrefly]
+python-interpreter-path = ".venv/bin/python"
+
 [tool.ruff]
-line-length = 120
-target-version = "py314"
+line-length = 88
 
 [tool.ruff.lint]
-select = ["E", "W", "F", "I", "B", "C4", "UP", "SIM"]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
+    "SIM",
+    "RUF",
+    "PERF",
+    "FURB",
+    "PIE",
+    "RET",
+    "ARG",
+    "A",
+    "N",
+    "PTH",
+    "S",
+    "C90",
+]
+ignore = [
+    "E501", # would only flag long strings and comments it can't wrap
+    "E731", # allow assigning a lambda to a variable
+]
+
+[tool.ruff.lint.per-file-ignores]
+"templates/day.py" = ["N801"]
+"tests/*" = ["S101"]          # allow assert in tests
