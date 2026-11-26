@@ -1,0 +1,31 @@
+{
+  "name": "advent-of-code",
+  "private": true,
+  "dependencies": {
+    "combinatorial-generators": "^1.1.2",
+    "dayjs": "^1.11.23",
+    "es-toolkit": "^1.53.2",
+    "mathjs": "^15.3.0",
+    "memoize": "^11.0.0",
+    "readline-sync": "^1.4.10",
+    "remeda": "^1.61.0",
+    "tinyqueue": "^3.0.0",
+    "ts-pattern": "^5.9.2",
+    "yocto-queue": "^1.2.2"
+  },
+  "devDependencies": {
+    "@jarsec/eslint-config": "^6.0.1",
+    "@jarsec/tsconfig": "^4.0.0",
+    "@types/node": "^26.6.7",
+    "@types/readline-sync": "^1.4.8",
+    "eslint": "^9.39.5",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  },
+  "imports": {
+    "#lib/*": "./lib/ts/*.ts"
+  },
+  "scripts": {
+    "lint": "eslint lib/ts"
+  }
+}

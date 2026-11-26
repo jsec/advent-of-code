@@ -1,3 +1,5 @@
+import os
+
 class Input:
     input: str
 
@@ -5,7 +7,7 @@ class Input:
         self.input = self.read_file(day)
 
     def read_file(self, day: int) -> str:
-        with open(f"inputs/day_{day}.txt") as file:
+        with open(os.environ["AOC_INPUT"]) as file:
             return file.read()
 
     def parse_as_lines(self) -> list[str]:

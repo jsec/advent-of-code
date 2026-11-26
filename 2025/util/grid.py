@@ -15,15 +15,12 @@ class Grid:
         if x < 0 or x >= self.height:
             return False
 
-        if y < 0 or y >= self.width:
-            return False
-
-        return True
+        return not (y < 0 or y >= self.width)
 
     def neighbors(self, x: int, y: int):
         neighbors: list[tuple[int, int]] = []
 
-        candidates = map(lambda t: (t[0] + x, t[1] + y), neighbor_map)
+        candidates = ((t[0] + x, t[1] + y) for t in neighbor_map)
         for cx, cy in candidates:
             if self.in_bounds(cx, cy):
                 neighbors.append((cx, cy))

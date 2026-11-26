@@ -3,20 +3,14 @@ docs/source
 input.txt
 desc.txt
 
- Byte-compiled / optimized / DLL files
 __pycache__
 *.py[cod]
 *$py.class
 .pdm.toml
-.env
 .venv
-env/
 venv/
-ENV/
-env.bak/
 venv.bak/
 .mypy_cache/
-.envrc
 
 # Logs
 logs
@@ -36,9 +30,11 @@ node_modules/
 # Optional eslint cache
 .eslintcache
 
-# dotenv environment variable files
+# environment variable files
 .env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+env/
+ENV/
+env.bak/
+
+# Puzzle inputs
+inputs/

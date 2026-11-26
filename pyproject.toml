@@ -1,0 +1,32 @@
+[project]
+name = "advent-of-code"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+  "numpy",
+  "networkx",
+  "sympy",
+  "z3-solver",
+  "mpmath",
+  "intervaltree",
+  "shapely",
+  "advent-of-code-data",
+]
+
+[dependency-groups]
+dev = ["basedpyright", "ruff"]
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "aoc"
+module-root = "lib/py"
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "SIM"]
